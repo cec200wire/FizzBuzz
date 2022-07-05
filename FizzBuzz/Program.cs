@@ -19,6 +19,11 @@
                 {
                     display += "Bang";
                 }
+
+                if (i % 11 == 0)
+                {
+                    display = "Bong";
+                }
                 
                 if (display == "")
                 {
