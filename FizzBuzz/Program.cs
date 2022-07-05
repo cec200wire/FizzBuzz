@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            for (int i = 1; i <= 105; i++)
+            for (int i = 1; i <= 200; i++)
             {
                 string display = "";
                 if (i % 3 == 0)
@@ -24,8 +24,23 @@
                 {
                     display = "Bong";
                 }
-                
-                if (display == "")
+
+                if (i % 13 == 0)
+                {
+                    string tempDisplay = display;
+                    for (int j = 0; j < tempDisplay.Length; j++)
+                    {
+                        if (tempDisplay[j] == 'B')
+                        {
+                            display = tempDisplay.Substring(0,j) + "Fezz" + tempDisplay.Substring(j);
+                        }
+                    }
+                    if (display == tempDisplay)
+                    {
+                        display += "Fezz";
+                    }
+                }
+                    if (display == "")
                 {
                     Console.WriteLine(i);
                 }
