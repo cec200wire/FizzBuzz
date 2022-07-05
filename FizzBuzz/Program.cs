@@ -4,7 +4,22 @@
     {
         static void Main()
         {
-            for (int i = 1; i <= 255; i++)
+            Console.WriteLine("Welcome to the FizzBuzz Counter!");
+            string repeat = "yes";
+            while (repeat != "no")
+            {
+                CountFizzBuzz();
+                Console.Write("Would you like to continue counting? [type 'no' to exit] ");
+                repeat = Console.ReadLine();
+            }
+        }
+        
+        static void CountFizzBuzz()
+        {
+            int min = RequestInteger("Choose a minimum integer: ", 1);
+            int max = RequestInteger("Choose a maximum integer: ", min);
+            
+            for (int i = min; i <= max; i++)
             {
                 string display = "";
                 if (i % 3 == 0)
@@ -19,7 +34,6 @@
                 {
                     display += "Bang";
                 }
-
                 if (i % 11 == 0)
                 {
                     display = "Bong";
@@ -61,6 +75,34 @@
                     Console.WriteLine(display);
                 }
             }
+        }
+        
+        static int RequestInteger(string text, int minimum)
+        {
+            int n = -1;
+            string success = "no";
+            while (success == "no")
+            {
+                Console.Write(text);
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out n))
+                {
+                    if (n >= minimum)
+                    {
+                        success = "yes";
+                    }
+                    else
+                    {
+                        text = "That integer is too low, please choose another: ";
+                    }
+                }
+                else
+                {
+                    text = "That is not a valid integer. Please enter a valid integer: ";
+                }
+                
+            }
+            return n;
         }
     }
 }
