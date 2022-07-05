@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            for (int i = 1; i <= 200; i++)
+            for (int i = 1; i <= 255; i++)
             {
                 string display = "";
                 if (i % 3 == 0)
@@ -27,20 +27,32 @@
 
                 if (i % 13 == 0)
                 {
-                    string tempDisplay = display;
-                    for (int j = 0; j < tempDisplay.Length; j++)
+                    string tempFezzDisplay = display;
+                    for (int j = 0; j < tempFezzDisplay.Length; j++)
                     {
-                        if (tempDisplay[j] == 'B')
+                        if (tempFezzDisplay[j] == 'B')
                         {
-                            display = tempDisplay.Substring(0,j) + "Fezz" + tempDisplay.Substring(j);
+                            display = tempFezzDisplay.Substring(0,j) + "Fezz" + tempFezzDisplay.Substring(j);
                         }
                     }
-                    if (display == tempDisplay)
+                    if (display == tempFezzDisplay)
                     {
                         display += "Fezz";
                     }
                 }
-                    if (display == "")
+
+                if (i % 17 == 0)
+                {
+                    string tempRevDisplay = display;
+                    display = "";
+                    for (int k = tempRevDisplay.Length; k > 0; k -= 4)
+                    {
+                        display += tempRevDisplay.Substring(k-4, 4);
+                    }
+                }
+                
+                
+                if (display == "")
                 {
                     Console.WriteLine(i);
                 }
