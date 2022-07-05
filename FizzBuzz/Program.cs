@@ -6,13 +6,24 @@
         {
             for (int i = 1; i <= 100; i++)
             {
+                string display = "";
                 if (i % 3 == 0)
                 {
-                    Console.WriteLine("Fizz");
+                    display += "Fizz";
+                }
+
+                if (i % 5 == 0)
+                {
+                    display += "Buzz";
+                }
+                
+                if (display == "")
+                {
+                    Console.WriteLine(i);
                 }
                 else
                 {
-                    Console.WriteLine(i);
+                    Console.WriteLine(display);
                 }
             }
         }
