@@ -20,12 +20,17 @@
             int max = RequestInteger("Choose a finishing integer: ", min);
             int ruleProduct = 1;
             int rule = 1;
-            Console.WriteLine("(3)Fizz  (5)Buzz  (7)Bang  (11)Bong  (13)Fezz  (17)Reverse");
+            Console.WriteLine("[3]Fizz  [5]Buzz  [7]Bang  [11]Bong  [13]Fezz  [17]Reverse");
             do
             {
                 ruleProduct *= rule;
                 rule = RequestInteger("Please enter the integer corresponding to a rule you would like to implement," +
                                       " or enter 0 if there are no further rules you would like to add: ", -1);
+                if (rule != 3 & rule != 5 & rule != 7 & rule != 11 & rule != 13 & rule != 17 & rule != 0)
+                {
+                    Console.WriteLine("Sorry, there is no rule corresponding to the integer {0}.", rule);
+                    rule = 1;
+                }
             } while (rule != 0);
             
             for (int i = min; i <= max; i++)
